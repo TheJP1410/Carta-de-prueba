@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Gumy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Scene 1 & 2: Matrix code & Neon Text -->
+    <section id="scene-matrix" class="scene active">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="content-centered">
+            <h1 id="neon-text" class="neon-pink"></h1>
+        </div>
+    </section>
+
+    <!-- Scene 3 & 4: Starry Sky & Bear -->
+    <section id="scene-bear" class="scene">
+        <div id="stars-container"></div>
+        <div class="content-centered">
+            <!-- Pochacco GIF -->
+            <img src="pochacco.gif" alt="Pochacco saltando con sus amigos" class="bear-placeholder"
+                style="border: none; background: transparent; box-shadow: none; animation: none;">
+        </div>
+    </section>
+
+    <!-- Scene 5, 6, 7: Interactive Book -->
+    <section id="scene-card" class="scene">
+        <div id="stars-container-2"></div>
+        <div class="book-container">
+            <h2 class="neon-pink small-neon" style="margin-bottom: 2rem; z-index: 50;">madeforanita.vercel.app</h2>
+
+            <div class="book-wrapper" id="birthday-book">
+                <div class="book-spine" id="book-spine">
+                    <!-- Leaf 1 (Cover / Spread 1 Left) -->
+                    <div class="book-leaf" id="leaf-1">
+                        <div class="page front book-cover-design tap-target" id="cover-tap">
+                            <img src="portada.jpg" alt="Portada del libro"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px 15px 15px 5px; position: absolute; top: 0; left: 0;">
+                            <p class="tap-hint"
+                                style="position: absolute; bottom: 20px; background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 10px; z-index: 10;">
+                                Toca para abrir</p>
+                        </div>
+                        <div class="page back book-page">
+                            <img src="foto1.jpg" alt="Gumy 1" class="photo-gumy" style="border-radius: 10px 0 0 10px;">
+                        </div>
+                    </div>
+
+                    <!-- Leaf 2 (Spread 1 Right / Spread 2 Left) -->
+                    <div class="book-leaf" id="leaf-2">
+                        <div class="page front book-page tap-target" id="page-1-tap">
+                            <img src="foto2.jpg" alt="Gumy 2" class="photo-gumy" style="border-radius: 0 10px 10px 0;">
+                            <p class="tap-hint"
+                                style="position: absolute; bottom: 40px; right: 20px; background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 10px; z-index: 10;">
+                                Tap siguiente Pág 👉</p>
+                        </div>
+                        <div class="page back book-page">
+                            <img src="foto3.jpg" alt="Gumy 3" class="photo-gumy" style="border-radius: 10px 0 0 10px;">
+                        </div>
+                    </div>
+
+                    <!-- Leaf 3 (Spread 2 Right / Back Cover) -->
+                    <div class="book-leaf" id="leaf-3">
+                        <div class="page front book-page tap-target" id="page-2-tap">
+                            <img src="foto4.jpg" alt="Gumy 4" class="photo-gumy" style="border-radius: 0 10px 10px 0;">
+                            <p class="tap-hint"
+                                style="position: absolute; bottom: 40px; right: 20px; background: rgba(255,255,255,0.8); padding: 5px 10px; border-radius: 10px; z-index: 10;">
+                                Toca Aquí 👉</p>
+                        </div>
+                        <div class="page back message-box tap-target" id="message-tap"
+                            style="border-radius: 10px 0 0 10px; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+                            <p id="card-message" class="message-text">As long as you're smiling, I'm happy. Your smile
+                                is beautiful – never stop smiling :)
+                                You can handle anything; there will always be bumps in the road or tough challenges, but
+                                I know you can get through them.
+                                You're a great girl – as a friend, as a daughter and as a sister. Tqm :p. 💕</p>
+                            <img src="foto5.png" alt="Foto final"
+                                style="width: 100%; max-height: 50%; object-fit: contain; border-radius: 10px;">
+                            <p class="tap-hint">Toca para el final ✨</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 8: Final Heart -->
+    <section id="scene-final" class="scene">
+        <div id="stars-container-3"></div>
+        <div class="content-centered final-layout">
+            <h2 class="neon-pink small-neon" style="margin-bottom: 2rem; z-index: 10;">valbirth.netlify.app</h2>
+            <div class="heart-photos-wrapper">
+                <div class="heart-photos-container" id="heart-formation">
+                    <!-- Javascript will generate placeholders here to form a heart -->
+                </div>
+                <div id="heart-center-content" class="heart-center-content">
+                    <h1 class="neon-pink heart-center-message">Happy Birthday<br>Geily!</h1>
+                    <img src="final.gif" alt="Sorpresa" class="heart-center-gif">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
