@@ -1,5 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Discord Webhook Notification ---
+    // Pega el Link de tu Webhook de Discord debajo, entre las comillas simples
+    const discordWebhookUrl = 'https://discord.com/api/webhooks/1483113616394948671/UbQr8xB-hSgbr4ajJnErzUo5PKQmYiQUr1AxFAKnbCvZE_7FbQtnzSqJAbD_VBj5DfiM';
+
+    function notifyDiscord() {
+        if (!discordWebhookUrl || discordWebhookUrl === 'PEGA_TU_WEBHOOK_AQUI') return;
+
+        const date = new Date();
+        const timeString = date.toLocaleString('es-ES', { timeZone: 'America/Lima' });
+
+        const payload = {
+            embeds: [{
+                title: "👀 ¡Nueva Visita a la Carta!",
+                description: `Alguien ha abierto la página de cumpleaños.\n📅 **Fecha y Hora (Perú):** ${timeString}`,
+                color: 16711935 // Pink neon hue
+            }]
+        };
+
+        fetch(discordWebhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(err => console.error('Error enviando webhook:', err));
+    }
+
+    // Call it immediately as the page loads
+    notifyDiscord();
+
     // --- Configuration & Elements ---
     const scenes = {
         matrix: document.getElementById('scene-matrix'),
@@ -163,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Tap 4: Transition to final scene
                 bookState = 4;
                 bookContainer.classList.remove('book-is-closed-back');
-                
+
                 setTimeout(() => {
                     transitionToScene(scenes.card, scenes.final);
                     createStars('stars-container-3');
@@ -194,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             piece.src = `corazon${i + 1}.jpg`; // Archivos: corazon1.jpg a corazon60.jpg
             piece.alt = `Pieza del corazón ${i + 1}`;
             piece.classList.add('heart-piece');
-            
+
             // Random start position outside the screen
             let angle = Math.random() * Math.PI * 2;
             let distance = Math.max(window.innerWidth, window.innerHeight);
@@ -205,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             piece.style.setProperty('--start-y', startY + 'px');
             piece.style.setProperty('--end-x', x + 'px');
             piece.style.setProperty('--end-y', y + 'px');
-            
+
             // Random rotation
             let rot = Math.random() * 360 - 180;
             piece.style.setProperty('--rot', rot);
